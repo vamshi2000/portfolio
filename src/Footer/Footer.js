@@ -18,13 +18,11 @@ const Footer = () => {
             </span>
           </div>
           <div className="text-right mb-3">
-            <a href="#">
-              <FontAwesomeIcon
-                className="text-pink-900 dark:text-custom-teal"
-                icon={faChevronUp}
-                size="3x"
-              />
-            </a>
+            <FontAwesomeIcon
+              className="text-pink-900 dark:text-custom-teal"
+              icon={faChevronUp}
+              size="3x"
+            />
           </div>
         </div>
       </div>
