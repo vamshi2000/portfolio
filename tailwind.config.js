@@ -1,8 +1,16 @@
+const { colors: defaultColors } = require("tailwindcss/defaultTheme");
+const colors = {
+  ...defaultColors,
+  ...{
+    "custom-teal": "#03DAC5",
+  },
+};
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: `media`, // or 'media' or 'class'
   theme: {
     extend: {},
+    colors: colors,
   },
   variants: {
     extend: {},
