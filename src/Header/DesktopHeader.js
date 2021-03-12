@@ -57,7 +57,10 @@ const DesktopHeader = () => {
                     onChange={(e) => {
                       handleThemeToggle(e);
                     }}
-                    defaultChecked={localStorage.theme === "dark"}
+                    defaultChecked={
+                      localStorage.theme === "dark" ||
+                      window.matchMedia("(prefers-color-scheme: dark)").matches
+                    }
                     className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 focus:outline-none appearance-none cursor-pointer"
                   />
                   <label
