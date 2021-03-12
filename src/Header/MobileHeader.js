@@ -1,6 +1,18 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMoon, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 const MobileHeader = () => {
+  const handleThemeToggler = (e) => {
+    debugger;
+    if (e.target.checked === true) {
+      document.body.classList.add("dark");
+      localStorage.theme = "dark";
+    } else {
+      document.body.classList.remove("dark");
+      localStorage.theme = "light";
+    }
+  };
   const [showMenu, showMenuSetter] = useState(false);
   return (
     <div className="grid grid-cols-4 md:hidden lg:hidden">
@@ -43,6 +55,40 @@ const MobileHeader = () => {
             <div className="p-2">
               <li className="hover:text-green-500">
                 <a href="/contact">CONTACT</a>
+              </li>
+            </div>
+            <div className="p-2">
+              <li className="hover:text-green-500">
+                <span>
+                  {" "}
+                  <FontAwesomeIcon
+                    className="text-pink-900 dark:text-custom-teal"
+                    icon={faLightbulb}
+                    size="2x"
+                  />
+                </span>
+                <span>
+                  <div class="relative inline-block m-1 w-10 select-none transition duration-200 ease-in">
+                    <input
+                      type="checkbox"
+                      name="toggle"
+                      id="toggle"
+                      onChange={(e) => {
+                        handleThemeToggler(e);
+                      }}
+                      defaultChecked={localStorage.theme === "dark"}
+                      className="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 focus:outline-none appearance-none cursor-pointer"
+                    />
+                    <label
+                      for="toggle"
+                      className="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"
+                    ></label>
+                  </div>
+                </span>
+                <span>
+                  {" "}
+                  <FontAwesomeIcon className="" icon={faMoon} size="2x" />
+                </span>
               </li>
             </div>
           </ul>
